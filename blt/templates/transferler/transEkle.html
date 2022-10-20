@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div>
+    <h1>Transfer Ekle</h1>
+    <p>Bu sayfadan gerçekleşen transferleri ekleyebilirsiniz.</p>
+    </div>
+    <br>
+    <form action="addTransfer" method='POST' >{% csrf_token %}
+        <div class="form-group">
+            <label for="usr">ADI:</label>
+            <input type="text" class="form-control" id="adi" name="adi">
+        </div>
+        <div class="form-group">
+            <label for="klm">SOYADI:</label>
+            <input type="text" class="form-control" id="soyadi" name="soyadi">
+        </div>
+        <div class="form-group">
+            <label for="usr">TransferDetay:</label>
+            <input type="text" class="form-control" id="transferDetay" name="transferDetay">
+        </div>
+        <div class="form-group">
+            <label for="usr">RESİM:</label>
+            <input type="text" class="form-control" id="resim" name="resim">
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Transfer Ekle</button>
+  </form>
+
+
+{% endblock content %}

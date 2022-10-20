@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Gerçekleşen Transferler</h1>
+    <div>
+        <img src="{% static transfer.get_resim_path %}" alt="">
+        <p>{{ transfer.adi }} {{ transfer.soyadi }}</p>
+        <hr>
+        <p>{{ transfer.transferDetay }}</p>
+
+    </div>
+
+
+
+{% endblock content %}

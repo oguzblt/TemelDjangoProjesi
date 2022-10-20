@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transfer Hattı</title>
+<link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+  <header id="header">
+      <div id="logo" style="text-align:center" ><img src="{% static 'tff0.png'%}" width="785" height="250">
+
+      </div>
+    <div id="topbanner"><img src="{% static 'fon01.png' %}" width="785" height="45" alt=""/></div>
+  </header>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+    <ul>
+        <li><a href="/"style="float: left">Ana Sayfa</a></li>
+        <li><a href="{% url 'transferler' %}"style="float: left">Transferler</a></li>
+        <li><a href="/menu3" style="float: left">Hakkımızda</a></li>
+        <li>
+            <a href="{% url 'addTransfer' %}" style="float: right">Transfer Ekle</a>
+        </li>
+        <li
+                {% if 'login' in request.path %}
+                {% else %}
+                {% endif %}
+        >
+            <a href="{% url 'login' %}"style="float: right">Giriş Yap</a>
+        </li>
+        <li
+                {% if 'register' in request.path %}
+                {% else %}
+                {% endif %}
+        >
+            <a href="{% url 'register' %}" style="float: right">Kayıt Ol</a>
+        </li>
+    </ul>
+
+
+
+    <section id="main">
+    {% block content %}
+        Burda içerik yok
+    {% endblock content %}
+  </section>
+    <footer id="footer">Copyright &copy; 2021 blt Design</footer>
+</div>
+</body>
+</html>

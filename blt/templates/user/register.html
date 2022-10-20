@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div>
+        <h4>Kayıt Ol</h4>
+    </div>
+    <div>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <hr>
+            <div>
+                <label for="repassword">RePassword</label>
+                <input type="password" name="repassword" required>
+            </div>
+            <hr>
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+
+{% endblock content %}

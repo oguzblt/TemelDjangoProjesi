@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <h1>Türkiye'de Gerçekleşen Transferler</h1>
+    </div>
+    <div>
+        {% if transferler %}
+            {% for transfer in transferler %}
+                <table border="2">
+                    <tr>
+                        <th>
+                            <a href="{% url 'detail' transfer.id %}">Göster</a>
+                        </th>
+                        <th>Adı</th>
+                        <th>Soyadı</th>
+                        <th>Transfer Detayı</th>
+                    </tr>
+                    <tr>
+                        <td><img src="{% static transfer.get_resim_path %}" alt=""></td>
+                        <td>{{ transfer.adi }}</td>
+                        <td>{{ transfer.soyadi }}</td>
+                        <td>{{ transfer.transferDetay }}</td>
+                    </tr>
+                </table>
+                <p>
+                    Admin, {{ transfer.yuklemeTarih | timesince }}
+                </p>
+            {% endfor %}
+        {% else %}
+            <div>
+            <p>
+                Transfer Yok
+            </p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}
